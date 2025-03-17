@@ -24,7 +24,9 @@ input.setAttribute("maxlength","1");
 trydiv.appendChild(input)
         }
         inputscontainer.appendChild(trydiv);
+    
     }
+    inputscontainer.children[0].children[1].focus();
 }
 window.onload = function(){
     generateinput();
