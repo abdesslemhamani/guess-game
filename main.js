@@ -14,7 +14,7 @@ function generateinput(){
     for (let i = 1 ; i<= numberoftries ; i++){
         const trydiv = document.createElement("div");
         trydiv.classList.add(`try-${i}`);
-        trydiv.innerHTML=`<span>try${i}</span>`;
+        trydiv.innerHTML=`<span>try ${i}</span>`;
         if (i !== 1 ) trydiv.classList.add("disabled-inputs");
         for (let j = 1 ; j<= numberofletters ; j++){
 const input = document.createElement("input");
@@ -39,10 +39,19 @@ trydiv.appendChild(input)
             const nextinput = inputs[index + 1 ];
             if(nextinput) nextinput.focus();
         });
+        
+        input.addEventListener("keydown",function(event){
+            
+            const curentindex =Array.from(inputs).indexOf(this);
+            if(event.key ==="ArrowRight"){
+                const nextinput = curentindex + 1 ;
+                if (nextinput < inputs.length) inputs[nextinput].focus();
+            }
+            if(event.key ==="ArrowLeft"){
+                const previnput = curentindex - 1 ;
+                if (previnput >= 0) inputs[previnput].focus();
+            }
         });
-        input.addEventListener("input",function(){
-            this.value = this.value.toUpperCase();
-           
     })
 }
 window.onload = function(){
