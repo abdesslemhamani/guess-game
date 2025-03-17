@@ -27,6 +27,23 @@ trydiv.appendChild(input)
     
     }
     inputscontainer.children[0].children[1].focus();
+
+    const inputsindisabledDiv = document.querySelectorAll(".disabled-inputs input");
+    inputsindisabledDiv.forEach((input)=>(input.disabled = true));
+
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach((input,index)=>{
+        input.addEventListener("input",function(){
+            this.value = this.value.toUpperCase();
+
+            const nextinput = inputs[index + 1 ];
+            if(nextinput) nextinput.focus();
+        });
+        });
+        input.addEventListener("input",function(){
+            this.value = this.value.toUpperCase();
+           
+    })
 }
 window.onload = function(){
     generateinput();
