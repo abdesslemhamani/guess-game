@@ -30,6 +30,9 @@ h1 {
 
     .game-area {
         .inputs {
+
+
+
             >div {
                 margin-bottom: 20px;
                 display: flex;
@@ -86,6 +89,47 @@ h1 {
                 }
             }
         }
+
+        .control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            margin: 30px auto;
+            gap: 10px;
+
+            .check {
+
+                background-color: var(--primary-color);
+
+                flex: 1;
+            }
+
+            .hint {
+
+                background-color: #009688;
+
+                width: fit-content;
+            }
+
+            button {
+                border: none;
+                font-size: 25px;
+                padding: 15px 20px;
+                border-radius: 6px;
+                color: white;
+                cursor: pointer;
+                font-weight: bold;
+
+            }
+
+            button:disabled {
+                background-color: black;
+                opacity: 0.4;
+                cursor: no-drop;
+            }
+
+        }
     }
 
     .key-colors {
@@ -122,6 +166,25 @@ h1 {
                 font-weight: bold;
             }
         }
+    }
+}
+
+.message {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+
+    span {
+        font-weight: bold;
+        display: block;
+        font-size: 50px;
+        color: var(--primary-color);
+        text-transform: capitalize;
+        margin-top: 10px;
+    }
+
+    p {
+        margin-top: 15px;
     }
 }
 
