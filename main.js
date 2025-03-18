@@ -1,16 +1,27 @@
+//setting game name
 let gamename = "Guess the word";
 document.title = gamename;
 document.querySelector("h1").innerHTML = gamename;
 document.querySelector("footer").innerHTML = `${gamename} game created by abdesslem hamani`;
 
-
+//setting game options
 let numberoftries = 6;
 let numberofletters = 6;
 let currentetry = 1;
 
+//manage words
+let wordtoguess ="";
+const words = ["salamo","hosnii","fronte","devlop","algeri","setife","daouch","louchi"];
+wordtoguess= words[Math.floor(Math.random()* words.length)].toLowerCase();
+let messagearea = document.querySelector(".message");
+
+
 function generateinput(){
     const inputscontainer = document.querySelector(".inputs");
 
+
+
+    //create main try div
     for (let i = 1 ; i<= numberoftries ; i++){
         const trydiv = document.createElement("div");
         trydiv.classList.add(`try-${i}`);
@@ -54,6 +65,33 @@ trydiv.appendChild(input)
         });
     })
 }
+const guessbutton = document.querySelector(".check");
+guessbutton.addEventListener("click",handleguesses);
+console.log(wordtoguess)
+function handleguesses () {
+    let successguess = true;
+    for(let i= 1; i <=numberofletters; i++){
+        const inputfield = document .querySelector(`#guess-${currentetry}-letter-${i}`);
+        const letter = inputfield.value.toLowerCase();
+const actualletter =wordtoguess[i - 1];
+if(letter === actualletter){
+    inputfield.classList.add("in-place");
+}else if (wordtoguess.includes(letter) && letter !==""){
+    inputfield.classList.add("not-in-place");
+     successguess = false;
+}else {
+    inputfield.classList.add("no");
+    successguess = false ;
+}
+}
+if (successguess){
+messagearea.innerHTML = `you win the word is<span>${wordtoguess}<span>`;
+}else{
+
+}
+    }
+
+
 window.onload = function(){
     generateinput();
 }
