@@ -84,14 +84,17 @@ if(letter === actualletter){
     successguess = false ;
 }
 }
+//check if user win or lose
 if (successguess){
 messagearea.innerHTML = `you win the word is<span>${wordtoguess}<span>`;
-
+//add disabled class on all try divs
 let alltries = document.querySelectorAll(".inputs >div");
 alltries.forEach((trydiv)=>trydiv.classList.add("disabled-inputs"));
-
+//disabled guess button 
 guessbutton.disabled = true;
 }else{
+docu
+
 
 }
     }
