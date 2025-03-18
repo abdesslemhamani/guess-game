@@ -86,6 +86,11 @@ if(letter === actualletter){
 }
 if (successguess){
 messagearea.innerHTML = `you win the word is<span>${wordtoguess}<span>`;
+
+let alltries = document.querySelectorAll(".inputs >div");
+alltries.forEach((trydiv)=>trydiv.classList.add("disabled-inputs"));
+
+guessbutton.disabled = true;
 }else{
 
 }
